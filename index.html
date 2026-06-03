@@ -2,11 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-    <meta name="theme-color" content="#0f2b3d">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <meta name="theme-color" content="#f8fafc">
     <title>Solo Cristo Salva | Iglesia Bautista de Sola</title>
     <style>
-        /* ========== RESET & BASE ========== */
         * {
             margin: 0;
             padding: 0;
@@ -14,463 +13,472 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-            background: radial-gradient(circle at 10% 20%, rgba(15, 43, 61, 0.95), rgba(8, 28, 41, 1));
-            color: #eef4ff;
-            min-height: 100vh;
-            padding: 20px 16px 32px;
+        :root {
+            --bg-primary: #f0f4f8;
+            --bg-surface: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --border-light: #e2e8f0;
+            --border-radius-card: 24px;
+            --border-radius-element: 16px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+            --shadow-lg: 0 12px 24px -8px rgba(0,0,0,0.08);
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --warning: #f59e0b;
+            --warning-light: #fed7aa;
+            --accent: #8b5cf6;
         }
 
-        /* ========== CONTAINER PRINCIPAL ========== */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #eff3f8 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 24px 20px 40px;
+        }
+
         .app-container {
-            max-width: 560px;
+            max-width: 1400px;
             margin: 0 auto;
             width: 100%;
         }
 
-        /* ========== HEADER MODERNO ========== */
-        .church-header {
+        /* Header */
+        .header {
             text-align: center;
-            margin-bottom: 24px;
-            animation: fadeInDown 0.6s ease;
+            margin-bottom: 32px;
         }
-        .church-header h1 {
-            font-size: 1.8rem;
+        .header h1 {
+            font-size: clamp(1.6rem, 5vw, 2.2rem);
             font-weight: 700;
-            background: linear-gradient(135deg, #F5E7D9, #D4B48C);
+            background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            letter-spacing: -0.3px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: -0.02em;
         }
-        .church-header .sub {
+        .header .sub {
             font-size: 0.85rem;
-            color: #9ab3c5;
-            letter-spacing: 0.5px;
-            margin-top: 6px;
+            color: var(--text-muted);
+            margin-top: 8px;
             font-weight: 500;
         }
-        .badge-version {
-            background: rgba(255,255,240,0.12);
-            backdrop-filter: blur(8px);
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 40px;
-            font-size: 0.7rem;
-            margin-top: 8px;
-            color: #cddfe7;
-        }
 
-        /* ========== CARDS KPI GLASS ========== */
+        /* KPI Cards */
         .kpi-grid {
             display: flex;
-            gap: 12px;
-            margin-bottom: 24px;
+            gap: 20px;
+            margin-bottom: 32px;
             flex-wrap: wrap;
         }
         .kpi-card {
             flex: 1;
-            background: rgba(18, 35, 48, 0.65);
-            backdrop-filter: blur(12px);
-            border-radius: 32px;
-            padding: 18px 8px;
+            min-width: 160px;
+            background: var(--bg-surface);
+            border-radius: var(--border-radius-card);
+            padding: 20px 16px;
             text-align: center;
-            border: 1px solid rgba(255,255,240,0.12);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            transition: all 0.2s ease;
         }
-        .kpi-card:active { transform: scale(0.97); }
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
         .kpi-label {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
+            letter-spacing: 0.06em;
             font-weight: 600;
-            letter-spacing: 1px;
-            color: #9bbdd1;
-            margin-bottom: 10px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
         }
         .kpi-value {
-            font-size: 1.8rem;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
             font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(120deg, #FFF, #e0eef9);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+            color: var(--text-primary);
         }
-        .entrada .kpi-value { background: linear-gradient(135deg, #A3E4B1, #2ecc71); background-clip: text; -webkit-background-clip: text; }
-        .salida .kpi-value { background: linear-gradient(135deg, #F5A97F, #e67e22); background-clip: text; -webkit-background-clip: text; }
-        .saldo .kpi-value { background: linear-gradient(135deg, #F9E79F, #f1c40f); background-clip: text; -webkit-background-clip: text; }
+        .kpi-card.entradas .kpi-value { color: var(--success); }
+        .kpi-card.salidas .kpi-value { color: var(--danger); }
+        .kpi-card.saldo .kpi-value { color: var(--primary); }
 
-        /* ========== TABS MODERNOS (SWIPE READY) ========== */
+        /* Tabs */
         .tabs {
             display: flex;
-            background: rgba(10, 28, 38, 0.7);
-            backdrop-filter: blur(16px);
-            border-radius: 48px;
-            padding: 6px;
-            margin-bottom: 24px;
-            gap: 6px;
-            border: 0.5px solid rgba(255,255,210,0.15);
+            background: var(--bg-surface);
+            border-radius: 60px;
+            padding: 4px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
         }
         .tab-btn {
             flex: 1;
             background: transparent;
             border: none;
-            padding: 12px 8px;
+            padding: 12px 16px;
             font-weight: 600;
-            font-size: 0.85rem;
-            border-radius: 40px;
-            color: #b8d0e0;
-            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            border-radius: 56px;
+            color: var(--text-secondary);
             cursor: pointer;
-            backdrop-filter: blur(4px);
-            letter-spacing: 0.3px;
+            transition: all 0.2s ease;
         }
         .tab-btn.active {
-            background: rgba(44, 125, 160, 0.85);
+            background: var(--primary);
             color: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        .tab-pane {
-            display: none;
-            animation: fadeSlide 0.3s ease;
-        }
-        .tab-pane.active-pane {
-            display: block;
+            box-shadow: var(--shadow-sm);
         }
 
-        /* ========== FORMULARIO GLASS ========== */
-        .glass-card {
-            background: rgba(25, 45, 60, 0.65);
-            backdrop-filter: blur(20px);
-            border-radius: 40px;
-            padding: 20px;
-            border: 1px solid rgba(255,255,220,0.1);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.25s ease;
         }
-        .form-group {
-            margin-bottom: 16px;
+        .tab-pane.active-pane { display: block; }
+
+        /* Form Cards */
+        .form-card {
+            background: var(--bg-surface);
+            border-radius: var(--border-radius-card);
+            padding: 28px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
         }
         .form-group label {
             display: block;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #b7d0e5;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
             margin-bottom: 6px;
         }
-        input, select, textarea {
+        input, select {
             width: 100%;
-            padding: 14px 18px;
-            background: rgba(5, 20, 30, 0.7);
-            border: 1px solid rgba(255,255,245,0.2);
-            border-radius: 28px;
-            font-size: 1rem;
-            color: white;
+            padding: 12px 16px;
+            background: var(--bg-primary);
+            border: 1.5px solid var(--border-light);
+            border-radius: var(--border-radius-element);
+            font-size: 0.9rem;
+            color: var(--text-primary);
             transition: all 0.2s;
             outline: none;
             font-weight: 500;
         }
         input:focus, select:focus {
-            border-color: #2c7da0;
-            background: rgba(10, 35, 50, 0.9);
-            box-shadow: 0 0 0 3px rgba(44,125,160,0.3);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+            background: white;
         }
         .btn-primary {
-            background: linear-gradient(105deg, #2c7da0, #1f5e7e);
+            background: var(--primary);
             border: none;
-            width: 100%;
-            padding: 14px;
-            border-radius: 48px;
-            font-weight: 700;
-            font-size: 1rem;
+            padding: 14px 20px;
+            border-radius: var(--border-radius-element);
+            font-weight: 600;
+            font-size: 0.9rem;
             color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 8px;
+        }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+        .btn-primary:active { transform: translateY(0); }
+        .btn-secondary {
+            background: transparent;
+            border: 1.5px solid var(--border-light);
+            padding: 10px 18px;
+            border-radius: var(--border-radius-element);
+            color: var(--text-secondary);
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
         }
-        .btn-primary:active { transform: scale(0.97); }
-        .btn-secondary {
-            background: rgba(255,255,245,0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,240,0.25);
-            padding: 12px 16px;
-            border-radius: 32px;
-            color: #eef4ff;
-            font-weight: 600;
-            font-size: 0.8rem;
+        .btn-secondary:hover {
+            background: var(--bg-primary);
+            border-color: var(--primary);
+            color: var(--primary);
         }
         .danger-btn {
-            background: rgba(200, 60, 60, 0.7);
-            border: none;
+            background: transparent;
+            border: 1.5px solid var(--border-light);
+            color: var(--danger);
+        }
+        .danger-btn:hover {
+            background: var(--danger-light);
+            border-color: var(--danger);
         }
 
-        /* ========== LISTA DE TRANSACCIONES ========== */
-        .transactions-list {
-            max-height: 460px;
-            overflow-y: auto;
-            padding-right: 4px;
-            scrollbar-width: thin;
+        /* Action Bar */
+        .action-bar {
+            display: flex;
+            gap: 12px;
+            margin: 20px 0 16px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        /* Transactions - Responsive */
+        .transactions-container {
+            margin-top: 8px;
         }
         .month-group {
-            margin-bottom: 24px;
+            margin-bottom: 32px;
+            background: var(--bg-surface);
+            border-radius: var(--border-radius-card);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
         }
         .month-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            padding: 8px 8px 12px;
-            border-bottom: 1px solid rgba(255,255,210,0.2);
-            margin-bottom: 12px;
+            align-items: center;
+            padding: 16px 20px;
+            background: #fafcff;
+            border-bottom: 1px solid var(--border-light);
+            flex-wrap: wrap;
+            gap: 12px;
         }
         .month-name {
             font-weight: 700;
-            font-size: 1.2rem;
-            background: linear-gradient(135deg, #F9E79F, #F7DC6F);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+            font-size: 1.1rem;
+            color: var(--text-primary);
         }
         .month-stats {
-            font-size: 0.7rem;
-            background: rgba(0,0,0,0.4);
-            padding: 4px 12px;
-            border-radius: 40px;
-        }
-        .transaction-item {
-            background: rgba(15, 35, 48, 0.5);
-            backdrop-filter: blur(4px);
-            border-radius: 24px;
-            padding: 14px 16px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.15s;
-            border: 0.5px solid rgba(255,255,240,0.08);
-        }
-        .transaction-item:active { background: rgba(30, 60, 80, 0.7); transform: scale(0.99); }
-        .tx-info {
-            flex: 2;
-        }
-        .tx-category {
-            font-weight: 700;
-            font-size: 0.85rem;
-            display: inline-block;
-            background: rgba(0,0,0,0.4);
-            padding: 2px 12px;
-            border-radius: 40px;
-            margin-bottom: 6px;
-        }
-        .tx-desc {
             font-size: 0.8rem;
-            color: #cbdae6;
+            background: var(--bg-primary);
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-weight: 500;
+            color: var(--text-secondary);
         }
-        .tx-date {
+        .btn-excel-sm {
+            background: transparent;
+            border: 1px solid var(--border-light);
+            padding: 6px 14px;
+            border-radius: 40px;
+            color: var(--primary);
             font-size: 0.7rem;
-            color: #8aaec2;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        .tx-amount {
-            font-weight: 800;
-            font-size: 1.2rem;
-            letter-spacing: -0.3px;
+        .btn-excel-sm:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
-        .amount-entrada { color: #6fcf97; text-shadow: 0 0 6px rgba(46,204,113,0.3);}
-        .amount-salida { color: #e67e22; }
+
+        /* Desktop Table */
+        @media (min-width: 901px) {
+            .desktop-table {
+                width: 100%;
+                overflow-x: auto;
+            }
+            .transactions-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .transactions-table th {
+                text-align: left;
+                padding: 14px 16px;
+                background: #f8fafc;
+                font-weight: 600;
+                font-size: 0.8rem;
+                color: var(--text-muted);
+                border-bottom: 1px solid var(--border-light);
+            }
+            .transactions-table td {
+                padding: 14px 16px;
+                border-bottom: 1px solid var(--border-light);
+                font-size: 0.85rem;
+            }
+            .transactions-table tr:hover td {
+                background: #fafcff;
+            }
+            .mobile-cards { display: none; }
+        }
+
+        /* Mobile Cards */
+        @media (max-width: 900px) {
+            .desktop-table { display: none; }
+            .mobile-cards { display: flex; flex-direction: column; gap: 12px; padding: 16px; }
+            .transaction-card {
+                background: var(--bg-surface);
+                border: 1px solid var(--border-light);
+                border-radius: 20px;
+                padding: 16px;
+                transition: all 0.2s;
+            }
+            .transaction-card:active { transform: scale(0.99); }
+            .card-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+            .card-category {
+                background: var(--bg-primary);
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 0.7rem;
+                font-weight: 600;
+                color: var(--text-secondary);
+            }
+            .card-amount {
+                font-size: 1.3rem;
+                font-weight: 700;
+            }
+            .amount-positive { color: var(--success); }
+            .amount-negative { color: var(--danger); }
+            .card-desc {
+                font-size: 0.85rem;
+                color: var(--text-secondary);
+                margin: 8px 0 6px;
+            }
+            .card-date {
+                font-size: 0.7rem;
+                color: var(--text-muted);
+            }
+        }
+
+        .badge-entrada {
+            display: inline-block;
+            background: var(--success-light);
+            color: var(--success);
+            padding: 4px 10px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .badge-salida {
+            display: inline-block;
+            background: var(--danger-light);
+            color: var(--danger);
+            padding: 4px 10px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
 
         .empty-state {
             text-align: center;
-            padding: 48px 20px;
-            background: rgba(0,0,0,0.2);
-            border-radius: 48px;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            background: var(--bg-surface);
+            border-radius: var(--border-radius-card);
+            border: 1px solid var(--border-light);
         }
 
-        /* ========== BOTONES DE ACCIÓN ========== */
-        .action-buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-        }
-        .action-buttons .btn-secondary {
-            flex: 1;
-            text-align: center;
-            font-size: 0.75rem;
-        }
-
-        /* ========== TOOLBAR INFERIOR (FAB) ========== */
-        .footer-note {
+        footer {
             text-align: center;
             font-size: 0.7rem;
-            color: #7f9cae;
-            margin-top: 32px;
-            border-top: 0.5px solid rgba(255,255,210,0.1);
-            padding-top: 20px;
+            color: var(--text-muted);
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-light);
         }
 
-        /* ========== ANIMACIONES ========== */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-12px);}
-            to { opacity: 1; transform: translateY(0);}
-        }
-        @keyframes fadeSlide {
-            from { opacity: 0; transform: translateX(8px);}
-            to { opacity: 1; transform: translateX(0);}
-        }
-
-        /* scroll personalizado */
-        .transactions-list::-webkit-scrollbar {
-            width: 4px;
-        }
-        .transactions-list::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.2);
-            border-radius: 10px;
-        }
-        .transactions-list::-webkit-scrollbar-thumb {
-            background: #2c7da0;
-            border-radius: 10px;
-        }
-        @media (max-width: 500px) {
-            body { padding: 16px 12px 24px; }
-            .kpi-value { font-size: 1.4rem; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 <div class="app-container">
-    <div class="church-header">
+    <div class="header">
         <h1>✝️ Solo Cristo Salva</h1>
-        <div class="sub">Iglesia Bautista de Sola</div>
-        <div class="badge-version">Gestión financiera · Mayordomía fiel</div>
+        <div class="sub">Iglesia Bautista de Sola · Administración financiera con integridad</div>
     </div>
 
-    <!-- KPIs dinámicos -->
     <div class="kpi-grid">
-        <div class="kpi-card entrada">
-            <div class="kpi-label">📥 Ingresos</div>
-            <div class="kpi-value" id="total-entradas">$0</div>
-        </div>
-        <div class="kpi-card salida">
-            <div class="kpi-label">📤 Egresos</div>
-            <div class="kpi-value" id="total-salidas">$0</div>
-        </div>
-        <div class="kpi-card saldo">
-            <div class="kpi-label">⚖️ Saldo</div>
-            <div class="kpi-value" id="saldo-actual">$0</div>
-        </div>
+        <div class="kpi-card entradas"><div class="kpi-label">📥 Ingresos</div><div class="kpi-value" id="total-entradas">$0</div></div>
+        <div class="kpi-card salidas"><div class="kpi-label">📤 Egresos</div><div class="kpi-value" id="total-salidas">$0</div></div>
+        <div class="kpi-card saldo"><div class="kpi-label">⚖️ Saldo</div><div class="kpi-value" id="saldo-actual">$0</div></div>
     </div>
 
-    <!-- TABS (Registro / Historial) -->
     <div class="tabs">
-        <button class="tab-btn active" data-tab="tab-registro">📝 Nuevo movimiento</button>
-        <button class="tab-btn" data-tab="tab-historial">📋 Historial</button>
+        <button class="tab-btn active" data-tab="registro">➕ Nuevo movimiento</button>
+        <button class="tab-btn" data-tab="historial">📋 Historial</button>
     </div>
 
-    <!-- PANEL REGISTRO -->
-    <div id="tab-registro" class="tab-pane active-pane">
-        <div class="glass-card">
+    <div id="registro" class="tab-pane active-pane">
+        <div class="form-card">
             <form id="form-transaccion">
-                <div class="form-group">
-                    <label>Tipo</label>
-                    <select id="tipo" required>
-                        <option value="entrada">💵 Entrada (Ingreso)</option>
-                        <option value="salida">💰 Salida (Gasto)</option>
-                    </select>
+                <div class="form-grid">
+                    <div class="form-group"><label>Tipo</label><select id="tipo"><option value="entrada">💵 Entrada (Ingreso)</option><option value="salida">💰 Salida (Gasto)</option></select></div>
+                    <div class="form-group"><label>Categoría</label><select id="categoria">
+                        <optgroup label="📥 Entradas"><option value="diezmo">Diezmo</option><option value="ofrenda">Ofrenda</option><option value="donacion">Donación</option><option value="evento">Evento Especial</option></optgroup>
+                        <optgroup label="📤 Salidas - Ministerios">
+                            <option value="infantil">Ministerio Infantil</option><option value="tercera-edad">Tercera Edad</option>
+                            <option value="jovenes">Jóvenes</option><option value="juveniles">Juveniles</option>
+                            <option value="administracion">Administración</option><option value="empleomania">Empleomanía</option>
+                            <option value="ayuda-social">Ayuda Social</option><option value="mantenimiento">Mantenimiento</option>
+                            <option value="pago-servicios">Pago Servicios</option><option value="misiones">Misiones</option>
+                        </optgroup>
+                    </select></div>
+                    <div class="form-group"><label>Monto</label><input type="number" id="monto" step="0.01" placeholder="0.00" required></div>
+                    <div class="form-group"><label>Descripción</label><input type="text" id="descripcion" placeholder="Motivo / detalle" required></div>
                 </div>
-                <div class="form-group">
-                    <label>Categoría</label>
-                    <select id="categoria" required>
-                        <option value="donacion">Donación</option>
-                        <option value="ofrenda">Ofrenda</option>
-                        <option value="Ayuda">Ayuda Social</option>
-                        <option value="pago">Pago / Servicio</option>
-                        <option value="evento">Evento Especial</option>
-                        <option value="diezmo">Diezmo</option>
-                        <option value="mantenimiento">Mantenimiento</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Monto (USD / Lempiras)</label>
-                    <input type="number" id="monto" step="0.01" placeholder="0.00" required>
-                </div>
-                <div class="form-group">
-                    <label>Descripción</label>
-                    <input type="text" id="descripcion" placeholder="Ej: Ofrenda dominical, reparación..." required>
-                </div>
-                <button type="submit" class="btn-primary">
-                    ✨ Registrar transacción
-                </button>
+                <button type="submit" class="btn-primary" style="margin-top: 24px;">✨ Registrar transacción</button>
             </form>
-            <div class="action-buttons">
-                <button id="borrarTodoBtn" class="btn-secondary danger-btn" style="background: rgba(180, 50, 50, 0.6);">🗑️ Borrar todo</button>
+            <div class="action-bar" style="justify-content: flex-end; margin-top: 16px;">
+                <button id="borrarTodoBtn" class="btn-secondary danger-btn">🗑️ Borrar todos los datos</button>
             </div>
         </div>
     </div>
 
-    <!-- PANEL HISTORIAL (con búsqueda y exportación excel profesional) -->
-    <div id="tab-historial" class="tab-pane">
-        <div class="glass-card" style="padding: 16px;">
-            <div class="form-group" style="margin-bottom: 16px;">
-                <label>🔍 Buscar movimiento</label>
-                <input type="text" id="filtro-busqueda" placeholder="Descripción, categoría o monto..." autocomplete="off">
-            </div>
-            <div class="action-buttons" style="margin-bottom: 20px;">
-                <button id="exportarFiltroBtn" class="btn-secondary">📎 Exportar vista (Excel)</button>
+    <div id="historial" class="tab-pane">
+        <div class="form-card" style="padding: 20px;">
+            <div class="form-group"><label>🔍 Buscar movimiento</label><input type="text" id="filtro-busqueda" placeholder="Descripción, categoría o tipo..."></div>
+            <div class="action-bar">
                 <button id="exportarGlobalBtn" class="btn-secondary">📁 Exportar todo (Excel)</button>
+                <button id="exportarFiltradoBtn" class="btn-secondary">📎 Exportar vista actual</button>
             </div>
-            <div id="transacciones-container" class="transactions-list">
-                <!-- render dinámico -->
-                <div class="empty-state">Cargando movimientos...</div>
-            </div>
+            <div id="transacciones-container" class="transactions-container"></div>
         </div>
     </div>
-    <div class="footer-note">
-        Datos guardados localmente · Informes Excel con formato profesional
-    </div>
+    <footer>Datos guardados localmente · Informes Excel con formato profesional · Diseño adaptativo</footer>
 </div>
 
 <script>
-    // ---------- MODELO DE DATOS ----------
     let transacciones = [];
+    const STORAGE_KEY = 'iglesia_solo_cristo_v4_clean';
 
-    // Storage clave moderna
-    const STORAGE_KEY = 'solo_cristo_salva_finanzas';
-
-    function guardarStorage() {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(transacciones));
-    }
+    function guardarStorage() { localStorage.setItem(STORAGE_KEY, JSON.stringify(transacciones)); }
 
     function cargarStorage() {
         const data = localStorage.getItem(STORAGE_KEY);
         if (data) {
             try {
                 let parsed = JSON.parse(data);
-                if (Array.isArray(parsed)) {
-                    transacciones = parsed.map(t => ({
-                        ...t,
-                        fecha: new Date(t.fecha),
-                        monto: Number(t.monto)
-                    }));
-                } else transacciones = [];
+                if (Array.isArray(parsed)) transacciones = parsed.map(t => ({ ...t, fecha: new Date(t.fecha), monto: Number(t.monto) }));
+                else transacciones = [];
             } catch(e) { transacciones = []; }
         }
-        if (transacciones.length === 0) {
-            // datos demostrativos profesionales
-            transacciones = [
-                { id: '1', tipo: 'entrada', categoria: 'diezmo', monto: 1450, descripcion: 'Diezmo enero', fecha: new Date(2025, 0, 12) },
-                { id: '2', tipo: 'entrada', categoria: 'donacion', monto: 780, descripcion: 'Donación anónima', fecha: new Date(2025, 0, 20) },
-                { id: '3', tipo: 'salida', categoria: 'Ayuda', monto: 320, descripcion: 'Ayuda a familia', fecha: new Date(2025, 0, 25) },
-                { id: '4', tipo: 'entrada', categoria: 'evento', monto: 1200, descripcion: 'Cena de hermandad', fecha: new Date(2025, 1, 10) },
-                { id: '5', tipo: 'salida', categoria: 'mantenimiento', monto: 540, descripcion: 'Reparación de aire acondicionado', fecha: new Date(2025, 1, 18) },
-                { id: '6', tipo: 'salida', categoria: 'pago', monto: 210, descripcion: 'Luz eléctrica', fecha: new Date(2025, 1, 22) },
-            ];
+        // Iniciar EN CERO - sin datos de ejemplo
+        if (!transacciones.length) {
+            transacciones = [];
             guardarStorage();
         }
         actualizarResumen();
@@ -480,10 +488,9 @@
     function actualizarResumen() {
         const totalEntradas = transacciones.filter(t => t.tipo === 'entrada').reduce((a,b) => a + b.monto, 0);
         const totalSalidas = transacciones.filter(t => t.tipo === 'salida').reduce((a,b) => a + b.monto, 0);
-        const saldo = totalEntradas - totalSalidas;
         document.getElementById('total-entradas').innerHTML = `$${totalEntradas.toFixed(2)}`;
         document.getElementById('total-salidas').innerHTML = `$${totalSalidas.toFixed(2)}`;
-        document.getElementById('saldo-actual').innerHTML = `$${saldo.toFixed(2)}`;
+        document.getElementById('saldo-actual').innerHTML = `$${(totalEntradas - totalSalidas).toFixed(2)}`;
     }
 
     function agregarTransaccion(nueva) {
@@ -491,31 +498,34 @@
         guardarStorage();
         actualizarResumen();
         renderizarHistorial();
-        // Si el usuario está en pestaña historial, se actualiza; si no, igual se mantiene sincronizado
     }
 
-    // ================== GENERADOR DE EXCEL PERFECTO (TABLA LIMPIA) ==================
-    function generarCSVExcel(transaccionesArray, nombreArchivo, tituloReporte) {
-        if (!transaccionesArray.length) {
-            alert("No hay datos para exportar.");
-            return;
-        }
+    function getFiltradas() {
+        const texto = document.getElementById('filtro-busqueda')?.value.trim().toLowerCase() || '';
+        if (!texto) return transacciones;
+        return transacciones.filter(t => 
+            t.descripcion.toLowerCase().includes(texto) || 
+            t.categoria.toLowerCase().includes(texto) ||
+            t.tipo.includes(texto)
+        );
+    }
+
+    function generarCSV(transaccionesArray, nombreArchivo, titulo) {
+        if (!transaccionesArray.length) { alert("No hay datos para exportar"); return; }
         const ordenadas = [...transaccionesArray].sort((a,b) => new Date(a.fecha) - new Date(b.fecha));
         const totalEnt = ordenadas.filter(t => t.tipo === 'entrada').reduce((s,t) => s + t.monto, 0);
         const totalSal = ordenadas.filter(t => t.tipo === 'salida').reduce((s,t) => s + t.monto, 0);
-        const saldoFinal = totalEnt - totalSal;
-
-        const filas = ordenadas.map(t => {
-            const fechaStr = t.fecha instanceof Date ? t.fecha.toLocaleDateString('es-ES') : new Date(t.fecha).toLocaleDateString('es-ES');
-            const tipoTexto = t.tipo === 'entrada' ? 'ENTRADA' : 'SALIDA';
-            return `"${fechaStr}";"${tipoTexto}";"${t.categoria}";${t.monto.toFixed(2)};"${t.descripcion.replace(/"/g, '""')}"`;
+        const saldo = totalEnt - totalSal;
+        const rows = ordenadas.map(t => {
+            const fecha = t.fecha instanceof Date ? t.fecha.toLocaleDateString('es-ES') : new Date(t.fecha).toLocaleDateString('es-ES');
+            const tipoText = t.tipo === 'entrada' ? 'ENTRADA' : 'SALIDA';
+            return `"${fecha}";"${tipoText}";"${t.categoria}";${t.monto.toFixed(2)};"${t.descripcion.replace(/"/g, '""')}"`;
         });
-
-        const cabecera = '"FECHA";"TIPO";"CATEGORÍA";"MONTO";"DESCRIPCIÓN"';
-        const separador = '"";"";"";"";""';
-        const totalRow = `"TOTALES:";"ENTRADAS: $${totalEnt.toFixed(2)}";"SALIDAS: $${totalSal.toFixed(2)}";"SALDO FINAL: $${saldoFinal.toFixed(2)}";""`;
-        const footer = `"${tituloReporte}";"Generado: ${new Date().toLocaleString()}";"Iglesia Bautista de Sola - Solo Cristo Salva";"";""`;
-        let csv = cabecera + "\n" + separador + "\n" + filas.join("\n") + "\n" + separador + "\n" + totalRow + "\n" + footer;
+        const header = '"FECHA";"TIPO";"CATEGORÍA";"MONTO";"DESCRIPCIÓN"';
+        const separator = '"";"";"";"";""';
+        const totalRow = `"RESUMEN:";"ENTRADAS: $${totalEnt.toFixed(2)}";"SALIDAS: $${totalSal.toFixed(2)}";"SALDO: $${saldo.toFixed(2)}";""`;
+        const footer = `"${titulo}";"Generado: ${new Date().toLocaleString()}";"Iglesia Bautista de Sola - Solo Cristo Salva";"";""`;
+        const csv = header + "\n" + separator + "\n" + rows.join("\n") + "\n" + separator + "\n" + totalRow + "\n" + footer;
         const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
@@ -524,34 +534,36 @@
         URL.revokeObjectURL(link.href);
     }
 
-    // helpers filtro
-    function getFiltradas() {
-        const texto = document.getElementById('filtro-busqueda')?.value.trim().toLowerCase() || '';
-        if (!texto) return transacciones;
-        return transacciones.filter(t => 
-            t.descripcion.toLowerCase().includes(texto) || 
-            t.categoria.toLowerCase().includes(texto) ||
-            t.tipo.includes(texto) ||
-            t.monto.toString().includes(texto)
-        );
-    }
+    window.exportarMes = (mesKey) => {
+        const filtradas = transacciones;
+        const grupos = {};
+        filtradas.forEach(t => {
+            const fecha = t.fecha instanceof Date ? t.fecha : new Date(t.fecha);
+            const key = `${fecha.getFullYear()}-${(fecha.getMonth()+1).toString().padStart(2,'0')}`;
+            if (!grupos[key]) grupos[key] = [];
+            grupos[key].push(t);
+        });
+        if (grupos[mesKey]) {
+            generarCSV(grupos[mesKey], `Informe_${mesKey}_Iglesia.csv`, `INFORME MENSUAL ${mesKey} - Solo Cristo Salva`);
+        } else {
+            alert("No se encontraron movimientos para este mes");
+        }
+    };
 
-    // render historial agrupado por mes (moderno, cards)
     function renderizarHistorial() {
         const container = document.getElementById('transacciones-container');
         if (!container) return;
         let filtradas = getFiltradas();
         if (filtradas.length === 0) {
-            container.innerHTML = `<div class="empty-state">📭 No hay movimientos registrados. Ve a la pestaña "Registro" para agregar.</div>`;
+            container.innerHTML = `<div class="empty-state">📭 No hay movimientos registrados. Ve a "Nuevo movimiento" para comenzar.</div>`;
             return;
         }
-        // agrupar por mes
         const grupos = {};
         filtradas.forEach(t => {
             const fecha = t.fecha instanceof Date ? t.fecha : new Date(t.fecha);
             const key = `${fecha.getFullYear()}-${(fecha.getMonth()+1).toString().padStart(2,'0')}`;
             const nombreMostrar = fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long' });
-            if (!grupos[key]) grupos[key] = { nombre: nombreMostrar, items: [], totalEnt:0, totalSal:0 };
+            if (!grupos[key]) grupos[key] = { nombre: nombreMostrar, items: [], totalEnt: 0, totalSal: 0 };
             grupos[key].items.push(t);
             if (t.tipo === 'entrada') grupos[key].totalEnt += t.monto;
             else grupos[key].totalSal += t.monto;
@@ -561,90 +573,103 @@
         for (let key of keysOrden) {
             const grupo = grupos[key];
             const neto = grupo.totalEnt - grupo.totalSal;
-            html += `<div class="month-group">
-                        <div class="month-header">
-                            <span class="month-name">📅 ${grupo.nombre}</span>
-                            <span class="month-stats">💰 +$${grupo.totalEnt.toFixed(2)} | -$${grupo.totalSal.toFixed(2)} | ${neto>=0?'🟢':'🔴'} $${neto.toFixed(2)}</span>
-                        </div>`;
-            grupo.items.sort((a,b)=> new Date(b.fecha) - new Date(a.fecha)).forEach(t => {
+            const itemsOrder = [...grupo.items].sort((a,b) => new Date(b.fecha) - new Date(a.fecha));
+            
+            let desktopRows = '';
+            for (let t of itemsOrder) {
                 const fechaShort = t.fecha instanceof Date ? t.fecha.toLocaleDateString('es-ES') : new Date(t.fecha).toLocaleDateString('es-ES');
-                const amountClass = t.tipo === 'entrada' ? 'amount-entrada' : 'amount-salida';
+                const badge = t.tipo === 'entrada' ? '<span class="badge-entrada">Entrada</span>' : '<span class="badge-salida">Salida</span>';
+                const montoColor = t.tipo === 'entrada' ? 'style="color:#10b981; font-weight:700;"' : 'style="color:#ef4444; font-weight:700;"';
+                desktopRows += `<tr><td>${fechaShort}</td><td>${badge}</td><td>${escapeHtml(t.categoria)}</td><td ${montoColor}>$${t.monto.toFixed(2)}</td><td>${escapeHtml(t.descripcion)}</td></tr>`;
+            }
+            
+            let mobileCards = '';
+            for (let t of itemsOrder) {
+                const fechaShort = t.fecha instanceof Date ? t.fecha.toLocaleDateString('es-ES') : new Date(t.fecha).toLocaleDateString('es-ES');
+                const amountClass = t.tipo === 'entrada' ? 'amount-positive' : 'amount-negative';
                 const signo = t.tipo === 'entrada' ? '+' : '-';
-                html += `<div class="transaction-item">
-                            <div class="tx-info">
-                                <div><span class="tx-category">${t.categoria}</span></div>
-                                <div class="tx-desc">${escapeHtml(t.descripcion)}</div>
-                                <div class="tx-date">${fechaShort}</div>
-                            </div>
-                            <div class="tx-amount ${amountClass}">${signo} $${t.monto.toFixed(2)}</div>
-                        </div>`;
-            });
-            html += `</div>`;
+                mobileCards += `
+                    <div class="transaction-card">
+                        <div class="card-header">
+                            <span class="card-category">${escapeHtml(t.categoria)}</span>
+                            <span class="card-amount ${amountClass}">${signo} $${t.monto.toFixed(2)}</span>
+                        </div>
+                        <div class="card-desc">📝 ${escapeHtml(t.descripcion)}</div>
+                        <div class="card-date">📅 ${fechaShort}</div>
+                    </div>
+                `;
+            }
+            
+            html += `
+                <div class="month-group">
+                    <div class="month-header">
+                        <span class="month-name">📅 ${grupo.nombre}</span>
+                        <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                            <span class="month-stats">💰 +$${grupo.totalEnt.toFixed(2)} | -$${grupo.totalSal.toFixed(2)} | ${neto>=0 ? '🟢' : '🔴'} $${neto.toFixed(2)}</span>
+                            <button class="btn-excel-sm" onclick="exportarMes('${key}')">📎 Exportar mes (CSV)</button>
+                        </div>
+                    </div>
+                    <div class="desktop-table">
+                        <table class="transactions-table">
+                            <thead><tr><th>Fecha</th><th>Tipo</th><th>Categoría</th><th>Monto</th><th>Descripción</th></tr></thead>
+                            <tbody>${desktopRows}</tbody>
+                        </table>
+                    </div>
+                    <div class="mobile-cards">${mobileCards}</div>
+                </div>
+            `;
         }
         container.innerHTML = html;
     }
 
     function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
 
-    // borrar todo
-    function borrarTodo() {
-        if (confirm('⚠️ Eliminarás TODOS los registros financieros. ¿Estás seguro? Esta acción es irreversible.')) {
-            transacciones = [];
-            guardarStorage();
-            actualizarResumen();
-            renderizarHistorial();
-        }
-    }
-
-    // eventos UI
     document.getElementById('form-transaccion')?.addEventListener('submit', (e) => {
         e.preventDefault();
         const tipo = document.getElementById('tipo').value;
         const categoria = document.getElementById('categoria').value;
         const monto = parseFloat(document.getElementById('monto').value);
         const descripcion = document.getElementById('descripcion').value.trim();
-        if (isNaN(monto) || monto <= 0) { alert("Monto inválido"); return; }
-        if (!descripcion) { alert("Descripción requerida"); return; }
-        const nueva = {
-            id: Date.now() + '-' + Math.random().toString(36),
-            tipo, categoria, monto, descripcion,
-            fecha: new Date()
-        };
+        if (isNaN(monto) || monto <= 0) { alert("Ingresa un monto válido mayor a cero"); return; }
+        if (!descripcion) { alert("La descripción es obligatoria"); return; }
+        const nueva = { id: Date.now() + '-' + Math.random().toString(36), tipo, categoria, monto, descripcion, fecha: new Date() };
         agregarTransaccion(nueva);
         document.getElementById('monto').value = '';
         document.getElementById('descripcion').value = '';
-        // Cambiar a pestaña historial para feedback
-        document.querySelector('.tab-btn[data-tab="tab-historial"]').click();
+        document.querySelector('.tab-btn[data-tab="historial"]').click();
     });
 
-    // Tabs switching
     const tabs = document.querySelectorAll('.tab-btn');
-    const panes = { 'tab-registro': document.getElementById('tab-registro'), 'tab-historial': document.getElementById('tab-historial') };
     tabs.forEach(btn => {
         btn.addEventListener('click', () => {
             const tabId = btn.getAttribute('data-tab');
-            Object.keys(panes).forEach(id => { panes[id].classList.remove('active-pane'); });
-            panes[tabId].classList.add('active-pane');
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active-pane'));
+            document.getElementById(tabId).classList.add('active-pane');
             tabs.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            if (tabId === 'tab-historial') renderizarHistorial();
+            if (tabId === 'historial') renderizarHistorial();
         });
     });
 
-    // exportar filtrado y global
-    document.getElementById('exportarFiltroBtn')?.addEventListener('click', () => {
-        const filtradas = getFiltradas();
-        if(filtradas.length === 0) { alert("No hay movimientos para exportar con este filtro."); return; }
-        generarCSVExcel(filtradas, `Informe_Filtrado_Iglesia_SoloCristo.csv`, "INFORME FILTRADO - Vista actual");
+    document.getElementById('borrarTodoBtn')?.addEventListener('click', () => {
+        if (confirm("⚠️ Esta acción eliminará TODOS los registros financieros. ¿Estás seguro?")) {
+            transacciones = [];
+            guardarStorage();
+            actualizarResumen();
+            renderizarHistorial();
+        }
     });
     document.getElementById('exportarGlobalBtn')?.addEventListener('click', () => {
-        if(transacciones.length === 0) { alert("No hay datos."); return; }
-        generarCSVExcel(transacciones, `Reporte_Global_SoloCristoSalva.csv`, "INFORME GLOBAL - Iglesia Bautista de Sola");
+        if (transacciones.length === 0) { alert("No hay datos para exportar"); return; }
+        generarCSV(transacciones, "Reporte_Global_SoloCristoSalva.csv", "INFORME GLOBAL - Iglesia Bautista de Sola");
     });
-    document.getElementById('borrarTodoBtn')?.addEventListener('click', borrarTodo);
-    const filtroInput = document.getElementById('filtro-busqueda');
-    if(filtroInput) filtroInput.addEventListener('input', () => renderizarHistorial());
-
+    document.getElementById('exportarFiltradoBtn')?.addEventListener('click', () => {
+        const filtradas = getFiltradas();
+        if (filtradas.length === 0) { alert("No hay datos con el filtro actual"); return; }
+        generarCSV(filtradas, "Informe_Filtrado_Iglesia.csv", "INFORME POR FILTRO - Solo Cristo Salva");
+    });
+    document.getElementById('filtro-busqueda')?.addEventListener('input', () => renderizarHistorial());
+    
     cargarStorage();
 </script>
 </body>
